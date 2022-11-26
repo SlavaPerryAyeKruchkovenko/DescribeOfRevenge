@@ -18,25 +18,25 @@ public class Character : KinematicBody2D
         Vector2 direction = Vector2.Zero;
         if (Input.IsActionPressed("move_left"))
         {
-            direction.x = -1;
+            direction.x = -CharSystem.Speed;
             PlayerImage.FlipH = true;
         }
-        else if (Input.IsActionPressed("move_right"))
+        if (Input.IsActionPressed("move_right"))
         {
-            direction.x = 1;
+            direction.x = CharSystem.Speed;
             PlayerImage.FlipH = false;
         }
-        else if (Input.IsActionPressed("move_up") && IsOnFloor())
+        if (Input.IsActionPressed("move_up") && IsOnFloor())
         {
-            direction.y -= gravity * 1.5f;
+            direction.y -= gravity * CharSystem.Speed;
         }
-        else if (Input.IsActionPressed("move_down") && IsOnFloor())
+        if (Input.IsActionPressed("move_down") && IsOnFloor())
         {
-            direction.y += gravity * 1.5f;
+            direction.y += gravity * CharSystem.Speed;
         }
-        direction.y += Mathf.Pow(gravity, 2) * delta;
-
-        MoveAndSlide(direction * CharSystem.Speed, Vector2.Up);
+        direction.y += Mathf.Pow(gravity, 2) * 2;
+        GD.Print(direction);
+        MoveAndSlide(direction, Vector2.Up);
     }
 
 }
