@@ -4,14 +4,15 @@ public class Character : KinematicBody2D
 {
     public CharacterSystem CharSystem { get; private set; }
     public Sprite PlayerImage { get; private set; }
-    float jumpForce = 400;
-    float gravity = 9.8f;
+    private const float jumpForce = 400;
+    private const float gravity = 9.8f;
 
     public override void _Ready()
     {
-        PlayerImage = (Sprite)GetNode("Icon");
+        PlayerImage = (Sprite)GetNode("Person");
         CharSystem = (CharacterSystem)GetNode(nameof(CharacterSystem));
     }
+
     public override void _PhysicsProcess(float delta)
     {
 
@@ -21,15 +22,18 @@ public class Character : KinematicBody2D
             direction.x = -CharSystem.Speed;
             PlayerImage.FlipH = true;
         }
+
         if (Input.IsActionPressed("move_right"))
         {
             direction.x = CharSystem.Speed;
             PlayerImage.FlipH = false;
         }
+
         if (Input.IsActionPressed("move_up") && IsOnFloor())
         {
             direction.y -= gravity * CharSystem.Speed;
         }
+
         if (Input.IsActionPressed("move_down") && IsOnFloor())
         {
             direction.y += gravity * CharSystem.Speed;

@@ -9,4 +9,3 @@
 
 [node name="Character" parent="." instance=ExtResource( 2 )]
 position = Vector2( 278, 28 )
-scale = Vector2( 0.8, 0.8 )

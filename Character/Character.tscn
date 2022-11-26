@@ -1,21 +1,81 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Character/CharacterSystem.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Character/person.png" type="Texture" id=2]
 [ext_resource path="res://Character/Character.cs" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.5, 31 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.63243
+height = 12.2241
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 9.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 2.91076
+height = 26.3895
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4.625, 4.25 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 5, 4 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 5.25, 4 )
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 5.0
+height = 10.8574
 
 [node name="Character" type="KinematicBody2D"]
 script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.5, 0 )
+[node name="LeftLag" type="CollisionShape2D" parent="."]
+position = Vector2( -6, 12 )
+rotation = 0.558505
+z_index = 2
 shape = SubResource( 1 )
-
-[node name="Icon" type="Sprite" parent="."]
-texture = ExtResource( 2 )
 
 [node name="CharacterSystem" parent="." instance=ExtResource( 1 )]
 StartSpeed = 400
+
+[node name="Person" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="RightLag" type="CollisionShape2D" parent="."]
+position = Vector2( 6, 11 )
+rotation = -0.488692
+z_index = 2
+shape = SubResource( 1 )
+
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2( 1, -7 )
+shape = SubResource( 2 )
+
+[node name="LeftArm" type="CollisionShape2D" parent="."]
+position = Vector2( -15, -7 )
+rotation = 0.314159
+shape = SubResource( 3 )
+
+[node name="RightArm" type="CollisionShape2D" parent="."]
+position = Vector2( 11, -7 )
+rotation = -0.20944
+shape = SubResource( 3 )
+
+[node name="Head" type="CollisionShape2D" parent="."]
+position = Vector2( 1.375, -27.75 )
+shape = SubResource( 4 )
+
+[node name="LeftFood" type="CollisionShape2D" parent="."]
+position = Vector2( -11, 28 )
+shape = SubResource( 5 )
+
+[node name="RightFood" type="CollisionShape2D" parent="."]
+position = Vector2( 9.75, 28 )
+shape = SubResource( 6 )
+
+[node name="LeftArm2" type="CollisionShape2D" parent="."]
+position = Vector2( -12, -13 )
+rotation = 0.244346
+shape = SubResource( 7 )
