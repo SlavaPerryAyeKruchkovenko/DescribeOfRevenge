@@ -49,6 +49,7 @@ public class CharacterSystem : Node
             EmitSignal(nameof(HealthChanged), oldHealth, _health);
         }
     }
+
     public int Energy
     {
         get => _energy;

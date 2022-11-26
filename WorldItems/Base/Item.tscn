@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://WorldItems/Base/Item.cs" type="Script" id=2]
+[ext_resource path="res://WorldItems/Base/ItemSprite.cs" type="Script" id=3]
+
+[node name="Item" type="Node"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 528, 299 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+MaxYPosition = 70
+AnimationSpeed = 50

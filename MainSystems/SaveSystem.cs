@@ -6,7 +6,7 @@ using File = System.IO.File;
 using Path = System.IO.Path;
 using System.Text.Json;
 
-public class SaveSystem : Godot.Object
+public class SaveSystem : Godot.Node
 {
     public DirectoryInfo SaveDirectory => Directory.CreateDirectory(SavePath);
 

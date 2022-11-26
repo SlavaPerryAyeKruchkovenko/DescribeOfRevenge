@@ -12,7 +12,16 @@ config_version=4
 
 config/name="DescribeOfRevenge"
 run/main_scene="res://scenes/BaseScenes.tscn"
+boot_splash/image="res://assets/project/icon.png"
 config/icon="res://icon.png"
+
+[autoload]
+
+SaveSystem="*res://MainSystems/SaveSystem.cs"
+
+[global]
+
+"Порт"=false
 
 [gui]
 
@@ -45,9 +54,14 @@ move_down={
  ]
 }
 
+[locale]
+
+fallback="ru_RU"
+
 [mono]
 
 project/assembly_name="DescribeOfRevenge"
+debugger_agent/wait_for_debugger=true
 
 [physics]
 
