@@ -44,10 +44,6 @@ move_down={
  ]
 }
 
-[locale]
-
-fallback="ru_RU"
-
 [mono]
 
 project/assembly_name="DescribeOfRevenge"

@@ -1,17 +1,14 @@
 using Godot;
 
-public class Charter : KinematicBody2D
+public class Character : KinematicBody2D
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
-    // Called when the node enters the scene tree for the first time.
+    Sprite PlayerImage;
+    float jumpForce = 30;
+    float gravity = 9.8f;
     public override void _Ready()
     {
-
+        PlayerImage = (Sprite)GetNode("Icon");
     }
-
     public override void _PhysicsProcess(float delta)
     {
         var direction = Vector2.Zero;
@@ -19,21 +16,23 @@ public class Charter : KinematicBody2D
         base._PhysicsProcess(delta);
         if (Input.IsActionPressed("move_left"))
         {
-            vector.x -= 1;
+            direction.x -= system.Speed;
+            PlayerImage.FlipH = true;
         }
         else if (Input.IsActionPressed("move_right"))
         {
-            vector.x += 2;
+            direction.x += system.Speed;
+            PlayerImage.FlipH = false;
         }
-        else if (Input.IsActionPressed("move_up"))
+        else if (Input.IsActionPressed("move_up") && IsOnFloor())
         {
-
+            direction.y += jumpForce;
         }
-        else if (Input.IsActionPressed("move_down"))
+        else if (Input.IsActionPressed("move_down") && IsOnFloor())
         {
-
+            direction.y -= gravity;
         }
-        MoveAndSlide(direction)
+        MoveAndSlide(direction, Vector2.Up);
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
