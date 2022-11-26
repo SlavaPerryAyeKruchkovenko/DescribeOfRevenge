@@ -14,14 +14,16 @@ public class Charter : KinematicBody2D
 
     public override void _PhysicsProcess(float delta)
     {
+        var direction = Vector2.Zero;
+        var system = (CharacterSystem)GetNode(nameof(CharacterSystem));
         base._PhysicsProcess(delta);
         if (Input.IsActionPressed("move_left"))
         {
-
+            vector.x -= 1;
         }
         else if (Input.IsActionPressed("move_right"))
         {
-
+            vector.x += 2;
         }
         else if (Input.IsActionPressed("move_up"))
         {
@@ -31,6 +33,7 @@ public class Charter : KinematicBody2D
         {
 
         }
+        MoveAndSlide(direction)
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.

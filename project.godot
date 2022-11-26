@@ -11,13 +11,7 @@ config_version=4
 [application]
 
 config/name="DescribeOfRevenge"
-run/main_scene="res://scenes/BaseScenes.tscn"
-boot_splash/image="res://assets/project/icon.png"
-config/icon="res://assets/project/icon.png"
-
-[global]
-
-"Порт"=false
+config/icon="res://icon.png"
 
 [gui]
 
@@ -53,7 +47,6 @@ move_down={
 [mono]
 
 project/assembly_name="DescribeOfRevenge"
-debugger_agent/wait_for_debugger=true
 
 [physics]
 
