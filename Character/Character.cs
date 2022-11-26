@@ -4,8 +4,9 @@ public class Character : KinematicBody2D
 {
     public CharacterSystem CharSystem { get; private set; }
     public Sprite PlayerImage { get; private set; }
-    float jumpForce = 30;
+    float jumpForce = 400;
     float gravity = 9.8f;
+
     public override void _Ready()
     {
         PlayerImage = (Sprite)GetNode("Icon");
@@ -13,28 +14,29 @@ public class Character : KinematicBody2D
     }
     public override void _PhysicsProcess(float delta)
     {
-        var direction = Vector2.Zero;
-        base._PhysicsProcess(delta);
+
+        Vector2 direction = Vector2.Zero;
         if (Input.IsActionPressed("move_left"))
         {
-            direction.x -= CharSystem.Speed;
+            direction.x = -1;
             PlayerImage.FlipH = true;
         }
         else if (Input.IsActionPressed("move_right"))
         {
-            GD.Print(CharSystem);
-            direction.x += CharSystem.Speed;
+            direction.x = 1;
             PlayerImage.FlipH = false;
         }
         else if (Input.IsActionPressed("move_up") && IsOnFloor())
         {
-            direction.y += jumpForce;
+            direction.y -= gravity * 1.5f;
         }
         else if (Input.IsActionPressed("move_down") && IsOnFloor())
         {
-            direction.y -= gravity;
+            direction.y += gravity * 1.5f;
         }
-        MoveAndSlide(direction, Vector2.Up);
+        direction.y += Mathf.Pow(gravity, 2) * delta;
+
+        MoveAndSlide(direction * CharSystem.Speed, Vector2.Up);
     }
 
 }
