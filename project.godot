@@ -12,21 +12,36 @@ config_version=4
 
 config/name="DescribeOfRevenge"
 run/main_scene="res://scenes/BaseScenes.tscn"
-boot_splash/image="res://assets/project/icon.png"
 config/icon="res://icon.png"
 <<<<<<<Updatedupstreamrun/main_scene="res://scenes/BaseScenes.tscn"
-
-[autoload]
-
-SaveSystem="*res://MainSystems/SaveSystem.cs"
-
-[global]
-
-"Порт"=false
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [input]
 
@@ -55,14 +70,9 @@ move_down={
  ]
 }
 
-[locale]
-
-fallback="ru_RU"
-
 [mono]
 
 project/assembly_name="DescribeOfRevenge"
-debugger_agent/wait_for_debugger=true
 
 [physics]
 
