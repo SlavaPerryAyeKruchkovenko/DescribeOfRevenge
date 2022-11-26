@@ -11,7 +11,9 @@ config_version=4
 [application]
 
 config/name="DescribeOfRevenge"
-config/icon="res://icon.png"
+run/main_scene="res://scenes/BaseScenes.tscn"
+boot_splash/image="res://assets/project/icon.png"
+config/icon="res://assets/project/icon.png"
 
 [global]
 
@@ -20,6 +22,10 @@ config/icon="res://icon.png"
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[locale]
+
+fallback="ru_RU"
 
 [mono]
 
