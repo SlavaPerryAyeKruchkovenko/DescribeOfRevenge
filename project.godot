@@ -11,13 +11,10 @@ config_version=4
 [application]
 
 config/name="DescribeOfRevenge"
-<<<<<<< Updated upstream
 run/main_scene="res://scenes/BaseScenes.tscn"
 boot_splash/image="res://assets/project/icon.png"
-=======
-run/main_scene="res://scenes/gui/MainMenu.tscn"
->>>>>>> Stashed changes
 config/icon="res://icon.png"
+<<<<<<<Updatedupstreamrun/main_scene="res://scenes/BaseScenes.tscn"
 
 [autoload]
 
